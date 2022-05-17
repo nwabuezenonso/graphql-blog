@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'; // import react
 
-import '../styles/globals.scss';
+import '../styles/globals.scss'; // import scss
 import { Layout } from '../components';
 
 function MyApp({ Component, pageProps }) {
