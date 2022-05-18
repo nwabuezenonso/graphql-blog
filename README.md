@@ -21,3 +21,15 @@ pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+
+first: index file
+second: add the cards and other component in the index
+third: create the header
+Fourth: add a layout component
+Fifth: get out data from graphCMS 
+create the post details data
+
+
+--If error -- 
+check services
