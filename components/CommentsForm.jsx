@@ -13,15 +13,21 @@ const CommentsForm = ({ slug }) => {
   const  emailEl = useRef();
   const  storeDataEl = useRef();
 
+  useEffect(() => {
+    nameEL.current.value = window.localStorage.getItem('name')
+    emailEl.current.value = window.localStorage.getItem('email')
+  }, [])
+
+  // handling data when button is clicked
   const handleCommentSubmission = () => {
     setError(false)  // set error function to false
     
     const { value: comment }  = commentEl.current;   // useref stores value in the current
-    const { value: name } =  name.current;
+    const { value: name } =  nameEL.current;
     const { value: email } =  emailEl.current;
     const { checked: storeData} =  storeDataEl.current;
 
-    if(!comment || name || !email){
+    if(!comment || !name || !email){
       setError(true);
       return;
     }
@@ -29,12 +35,20 @@ const CommentsForm = ({ slug }) => {
     const commentObj = {name, email, comment, slug }   // storing the name, email and data in the  object
 
     if(storeData){
-      localStorage.setItem('name' ,name)
-      localStorage.setItem('email', email)
+      window.localStorage.setItem('name' ,name)
+      window.localStorage.setItem('email', email)
     }else{
-      localStorage.setItem('name', name)
-      localStorage.setItem('email', email)
+      window.localStorage.setItem('name', name)
+      window.localStorage.setItem('email', email)
     }
+    // submit object from the services
+    submitComment(commentObj)
+      .then((res) => {
+        setShowSuccessMessage(true);
+        setTimeout(() => {
+          setShowSuccessMessage(false)
+        }, 30000)
+      })
   }
 
   //  return the form

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components' // import set of component
 import { getPosts } from '../services'  // get post function
+import { FeaturedPosts }  from '../sections'
 
 // exporting home functional component and the function that comes after header
 export default function Home({ posts })  {
@@ -10,6 +11,7 @@ export default function Home({ posts })  {
         <title>CMS Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <FeaturedPosts />
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col -span-1'>
           {posts.map((post, index) =>(

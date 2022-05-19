@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/hello.js"  ],
+, "pages/api/comments.js"  ],
   "exclude": [
     "node_modules"
   ]

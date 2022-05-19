@@ -137,8 +137,9 @@ export const getCategories = async () => {
 };
 
 // submit the data
+//post the data to the backend endpoint
 export const submitComment = async (obj) => {
-  const result = await fetch('/api/comments', {  //post the data to the backend endpoint
+  const result = await fetch('/api/comments', {  
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -150,6 +151,7 @@ export const submitComment = async (obj) => {
 };
 
 // getting comment from graphql and pass the slug
+// get comments where post has this slug
 export const getComments = async (slug) => {
   const query = gql`
     query GetComments($slug:String!) {
@@ -164,4 +166,31 @@ export const getComments = async (slug) => {
   const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
+};
+
+
+// getting featured post
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetCategoryPost() {
+      posts(where: {featuredPost: true}) {
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        featuredImage {
+          url
+        }
+        title
+        slug
+        createdAt
+      }
+    }   
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.posts;
 };

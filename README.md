@@ -29,6 +29,7 @@ third: create the header
 Fourth: add a layout component
 Fifth: get out data from graphCMS 
 create the post details data
+Sixth: implement the comment function to recieve comments
 
 add the comment component
 
