@@ -94,7 +94,7 @@ export const getRecentPosts = async () => {
     `;
     const result = await request(graphqlAPI, query); // make request to get the query
   
-    return result.posts;  // the post being returned from post connection to get post
+    return result.posts;  // the post to get several post
 };
  
 // get similar post and pull data
@@ -117,7 +117,7 @@ export const getSimilarPosts = async (categories, slug) => {
   `;
   const result = await request(graphqlAPI, query, { slug, categories });  // make the request
   
-  return result.posts; // get the post to get post
+  return result.posts; // get several post
 };
 
 // function to get categories and pull data

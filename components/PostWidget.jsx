@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { getRecentPosts, getSimilarPosts } from '../services'; // import get recent post and get similar post from a file
 
 // for recent post
-const PostWidget = ({ caterories, slug}) => {
+const PostWidget = ({ categories, slug}) => {
   const [relatedPosts, setRelatedPosts] = useState([]);    // use state hook
 
   useEffect(() => {
     if(slug){   // conditional statement when slug is availble
-      getSimilarPosts(caterories, slug)
+      getSimilarPosts(categories, slug)
         .then((result) => setRelatedPosts(result))
     } else {
       getRecentPosts() // if not get the data

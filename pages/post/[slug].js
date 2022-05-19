@@ -27,20 +27,20 @@ export default PostDetails
 
 // as we can do with use effect and state
 export async function getStaticProps({ params }){   
-  const data  = await getPostDetails(params.slug)  // pass in the data for the slug
+  const data  = await getPostDetails(params.slug)  // pass in the data with the slug
 
   // return the props containing data
   return {
     props: { post: data }
   }
 }
-
+ 
 // when having dynamic url
 export async function getStaticPaths() {
   const posts = await getPosts()   // get the post
   
   return {
-    paths: posts.map(({node: { slug }}) => ({params: { slug }})),  //return a path
+    paths: posts.map(({node: { slug }}) => ({params: { slug }})),  //return a params to be set to slug
     fallback: false   //fallback
   }
 }
