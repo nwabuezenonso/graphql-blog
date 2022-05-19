@@ -30,6 +30,8 @@ Fourth: add a layout component
 Fifth: get out data from graphCMS 
 create the post details data
 
+add the comment component
+
 
 --If error -- 
 check services
