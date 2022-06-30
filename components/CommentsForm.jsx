@@ -34,12 +34,13 @@ const CommentsForm = ({ slug }) => {
 
     const commentObj = {name, email, comment, slug }   // storing the name, email and data in the  object
 
+    // store those values in a local storage
     if(storeData){
       window.localStorage.setItem('name' ,name)
       window.localStorage.setItem('email', email)
     }else{
-      window.localStorage.setItem('name', name)
-      window.localStorage.setItem('email', email)
+      window.localStorage.removeItem('name', name)
+      window.localStorage.removeItem('email', email)
     }
     // submit object from the services
     submitComment(commentObj)
